@@ -152,7 +152,7 @@ lo que corresponde a transponer y conjugar cada elemento. Equivalentemente:
     Estas propiedades garantizan que los valores esperados \\\( \\langle \\psi|\\hat{A}|\\psi \\rangle \\\) sean reales cuando \\\( \\hat{A} \\\) es hermítico (\\\( \\hat{A}^\\dagger = \\hat{A} \\\)).`
 },
 {
-    title: "Operaciones con Operadores en Mecánica Cuántica",
+    title: "Operadores y sus operaciones",
     duration: "20 min",
     description: `En el formalismo matemático de la mecánica cuántica, los operadores representan observables físicos y transformaciones entre estados.<br><br>
 
@@ -207,10 +207,67 @@ Aparecen como generadores de transformaciones unitarias infinitesimales<br><br>
 Estas clasificaciones son esenciales para:<br>
 - Construir mediciones válidas (hermíticos)<br>
 - Modelar dinámicas cuánticas (unitarios)<br>
-- Desarrollar teoría de perturbaciones (antihermíticos)`
+- Desarrollar teoría de perturbaciones (antihermíticos)<br><br>
+
+
+<strong>4. Operador de Traslación</strong><br><br>
+
+En mecánica cuántica, el operador de traslación \\( \\hat{T}(\\alpha) \\) desplaza estados en el espacio:<br><br>
+
+\\[
+\\hat{T}(\\alpha)\\ket{x} = \\ket{x+\\alpha}
+\\]<br><br>
+
+<strong>Relación con el operador momento:</strong><br>
+El operador de traslación puede expresarse en términos del operador momento \\( \\hat{p} \\):<br><br>
+
+\\[
+\\hat{T}(\\alpha) = \\exp\\left(-\\frac{i\\alpha\\hat{p}}{\\hbar}\\right)
+\\]<br><br>
+
+<strong>Representación en la base de posición:</strong><br>
+Para un estado \\( \\ket{\\psi} \\), la acción del operador de traslación es:<br><br>
+
+\\[
+\\braket{x|\\hat{T}(\\alpha)|\\psi} = \\psi(x-\\alpha)
+\\]<br><br>
+
+<strong>Conexión con las bases {|x⟩} y {|k⟩}:</strong><br>
+Partiendo de la relación conocida:<br><br>
+
+\\[
+\\braket{x|k} = \\frac{e^{ikx}}{\\sqrt{2\\pi}}
+\\]<br><br>
+
+Al aplicar una traslación \\( x' = x - \\alpha \\):<br><br>
+
+\\[
+\\braket{x-\\alpha|k} = \\frac{e^{ik(x-\\alpha)}}{\\sqrt{2\\pi}} = e^{-ik\\alpha}\\braket{x|k}
+\\]<br><br>
+
+<strong>Propiedades clave:</strong><br>
+1. Unitariedad:<br>
+\\[
+\\hat{T}^\\dagger(\\alpha) = \\hat{T}(-\\alpha) = \\hat{T}^{-1}(\\alpha)
+\\]<br><br>
+
+2. Relación de conmutación:<br>
+\\[
+[\\hat{x}, \\hat{T}(\\alpha)] = \\alpha\\hat{T}(\\alpha)
+\\]<br><br>
+
+3. Composición de traslaciones:<br>
+\\[
+\\hat{T}(\\alpha)\\hat{T}(\\beta) = \\hat{T}(\\alpha+\\beta)
+\\]<br><br>
+
+<strong>Interpretación física:</strong><br>
+• Genera desplazamientos espaciales en sistemas cuánticos<br>
+• Fundamental en la descripción de sistemas periódicos<br>
+• Relacionado con la invarianza traslacional en sistemas físicos`
 },
                 {
-    title: "Bases Vectoriales en Mecánica Cuántica",
+    title: "Bases Vectoriales ",
     duration: "25 min",
     description: `<strong>4. Bases Vectoriales y su Importancia</strong><br><br>
 
@@ -263,7 +320,7 @@ En la base de posición \\( \\{|x\\rangle\\} \\), el operador Hamiltoniano se es
 \\]`
 },
 {
-    title: "Problema de Valores Propios en Mecánica Cuántica",
+    title: "Problema de Valores Propios ",
     duration: "20 min",
     description: `<strong>7. El Problema de Valores Propios</strong><br><br>
 
@@ -317,7 +374,7 @@ La ecuación fundamental para operadores en mecánica cuántica es:<br><br>
 • Después de medir, el sistema colapsa al autoestado \\( \\ket{a_i} \\)`
 },
 {
-    title: "Espacios Vectoriales Continuos en Mecánica Cuántica",
+    title: "Espacios Vectoriales Continuos ",
     duration: "25 min",
     description: `<strong>9. Bases Continuas en Espacios de Hilbert</strong><br><br>
 
@@ -395,7 +452,7 @@ Las transformaciones entre bases se expresan como:<br><br>
         // Capítulo 2: Representaciones y Bases
         {
             id: 2,
-            title: "Transformada de Fourier en Mecánica Cuántica",
+            title: "Transformaciones y Teoría de Sturm-Liouville",
             duration: "35 min",
             videoId: "VIDEO_ID_2",
             description: "Estudiamos las distintas transformaciones y su importancia.",
@@ -403,7 +460,7 @@ Las transformaciones entre bases se expresan como:<br><br>
                 {
     title: "Transformada de Fourier ",
     duration: "30 min",
-    description: `<strong>13. Transformada de Fourier Cuántica</strong><br><br>
+    description: `<strong>13. Transformada de Fourier </strong><br><br>
 
 La conexión fundamental entre las bases de posición y momento viene dada por:<br><br>
 
@@ -501,21 +558,838 @@ i \\frac{d}{dk}\\left(k\\tilde{\\phi}(k)\\right) + k^2\\tilde{\\phi}(k) = \\tild
 
 <strong>Interpretación:</strong> Muestra cómo operadores diferenciales surgen naturalmente al cambiar entre representaciones.`
 },
+{
+    title: "Transformaciones Unitarias ",
+    duration: "18 min",
+    description: `<strong>1. Transformaciones Unitarias Infinitesimales</strong><br><br>
+
+Consideremos una transformación unitaria infinitesimal \\( \\hat{U}_\\alpha(\\hat{G}) \\):<br><br>
+
+\\[
+\\hat{U}_\\alpha(\\hat{G}) = \\hat{I} + i\\alpha\\hat{G}
+\\]<br><br>
+
+donde:<br>
+• \\( \\alpha \\in \\mathbb{R} \\) (|\\(\\alpha\\)| ≪ 1)<br>
+• \\( \\hat{G}^\\dagger = \\hat{G} \\) (operador hermítico)<br><br>
+
+<strong>Condición de unitariedad:</strong><br>
+\\[
+\\hat{U}\\hat{U}^\\dagger \\approx \\hat{I} \\implies \\hat{U} \\text{ es unitario}
+\\]<br><br>
+
+<strong>Interpretación:</strong><br>
+• \\( \\hat{G} \\) = Generador de la transformación<br>
+• \\( \\alpha \\) = Parámetro de la transformación<br><br>
+
+<strong>2. Acción sobre estados y operadores</strong><br><br>
+
+Para un estado arbitrario \\( \\ket{\\psi} \\):<br><br>
+
+\\[
+\\ket{\\psi'} = \\hat{U}\\ket{\\psi} = \\ket{\\psi} + i\\alpha\\hat{G}\\ket{\\psi}
+\\]<br><br>
+
+Para un operador arbitrario \\( \\hat{A} \\):<br><br>
+
+\\[
+\\hat{A}' = \\hat{U}\\hat{A}\\hat{U}^\\dagger = \\hat{A} + i\\alpha[\\hat{G}, \\hat{A}]
+\\]<br><br>
+
+<strong>Casos especiales:</strong><br>
+Si \\( [\\hat{G}, \\hat{A}] = 0 \\), entonces \\( \\hat{A}' = \\hat{A} \\) (operador invariante)<br><br>
+
+<strong>3. Transformaciones Unitarias Finitas</strong><br><br>
+
+Una transformación finita se construye como sucesión de transformaciones infinitesimales:<br><br>
+
+\\[
+\\hat{U}_\\alpha(\\hat{G}) = \\lim_{N\\to\\infty} \\prod_{k=1}^N \\left( \\hat{I} + i\\frac{\\alpha}{N}\\hat{G} \\right) = e^{i\\alpha\\hat{G}}
+\\]<br><br>
+
+<strong>Propiedades clave:</strong><br>
+1. Todas las transformaciones de la forma \\( e^{i\\alpha\\hat{G}} \\) son unitarias<br>
+2. Ejemplo fundamental: \\( e^{i\\hat{k}x_0} \\) → Operador de traslación espacial<br><br>
+
+<strong>Interpretación física:</strong><br>
+• Describen simetrías en sistemas cuánticos<br>
+• Relacionadas con leyes de conservación (teorema de Noether)<br>
+• Fundamentales en teoría de grupos en mecánica cuántica`
+},
+{
+    title: "Problema de Sturm-Liouville ",
+    duration: "25 min",
+    description: `<strong>1. Introducción al Problema de Sturm-Liouville</strong><br><br>
+
+El problema de Sturm-Liouville es fundamental en la física matemática y mecánica cuántica, ya que describe sistemas con operadores diferenciales autoadjuntos que generan bases ortogonales completas.<br><br>
+
+<strong>2. Forma Canónica del Operador</strong><br><br>
+
+En su representación diferencial, el problema general tiene la forma:<br><br>
+
+\\[
+\\left[ \\alpha_0(x)\\frac{d^2}{dx^2} + \\alpha_1(x)\\frac{d}{dx} + \\alpha_2(x) \\right]y_\\lambda(x)= \\lambda y_\\lambda(x)
+\\]<br><br>
+
+<strong>Paso a paso:</strong><br>
+1. Identificamos los componentes:<br>
+   - \\(\\alpha_0(x)\\): Coeficiente de la segunda derivada<br>
+   - \\(\\alpha_1(x)\\): Coeficiente de la primera derivada<br>
+   - \\(\\alpha_2(x)\\): Término potencial<br>
+   - \\(\\lambda\\): Valor propio escalar<br><br>
+
+2. En el espacio de Hilbert, usando la correspondencia entre operadores:<br>
+   \\[
+   \\frac{d}{dx} \\leftrightarrow -i\\hat{k} \\quad \\text{y} \\quad \\frac{d^2}{dx^2} \\leftrightarrow -\\hat{k}^2
+   \\]<br><br>
+
+La forma operacional en espacio de Hilbert queda:<br><br>
+
+\\[
+\\left[ -\\alpha_0(\\hat{x})\\hat{k}^2  -i\\alpha_1(\\hat{x})\\hat{k} + \\alpha_2(\\hat{x}) \\right]\\ket{y_\\lambda}= \\lambda \\ket{y_\\lambda}
+\\]<br><br>
+
+<strong>Interpretación física:</strong><br>
+• \\(\\hat{k}\\) representa el operador de momento (generador de traslaciones)<br>
+• \\(\\hat{x}\\) es el operador posición<br>
+• La ecuación describe autovalores de un operador diferencial general<br><br>
+
+<strong>3. Propiedades Fundamentales</strong><br><br>
+
+Definiendo el operador completo:<br><br>
+
+\\[
+\\hat{o} = - \\alpha_0(\\hat{x})\\hat{k}^2  -i\\alpha_1(\\hat{x})\\hat{k} + \\alpha_2(\\hat{x})
+\\]<br><br>
+
+<strong>Características clave:</strong><br>
+• Los valores propios \\(\\lambda\\) son reales si \\(\\hat{o}\\) es hermítico<br>
+• Los vectores propios \\(\\ket{y_\\lambda}\\) forman una base completa<br>
+• La ortogonalidad de la base depende de las propiedades de \\(\\hat{o}\\):<br><br>
+
+\\[
+\\text{Si } \\hat{o}^\\dagger=\\hat{o} \\text{ (hermítico)} \\implies \\text{base ortogonal}
+\\]<br><br>
+
+<strong>4. Forma Autoadjunta</strong><br><br>
+
+La forma estándar autoadjunta introduce funciones de peso:<br><br>
+
+\\[
+\\left[ \\frac{d}{dx}P(x)\\frac{d}{dx} + q(x)\\right]Y_\\lambda(x)= \\lambda w(x)y_\\lambda(x)
+\\]<br><br>
+
+<strong>Transformación a operadores cuánticos:</strong><br>
+1. Aplicamos las correspondencias operacionales:<br>
+\\[
+\\frac{d}{dx} \\to i\\hat{k}, \\quad \\frac{d}{dx}P(x)\\frac{d}{dx} \\to -\\hat{k}P(\\hat{x})\\hat{k}
+\\]<br><br>
+
+2. Obtenemos la versión operacional:<br><br>
+
+\\[
+[-\\hat{k}p(\\hat{x})\\hat{k} + q(\\hat{x})]\\ket{y_\\lambda} = \\lambda w(\\hat{x})\\ket{y_\\lambda}
+\\]<br><br>
+
+<strong>Análisis de autoadjunción:</strong><br>
+• Demostramos que el operador es hermítico:<br><br>
+
+\\[
+\\hat{o} = -\\hat{k}p(\\hat{x})\\hat{k} + q(\\hat{x})
+\\]
+\\[
+\\hat{o}^\\dagger = [ -\\hat{k}p(\\hat{x})\\hat{k} + q(\\hat{x}) ]^\\dagger = \\hat{o}
+\\]<br><br>
+
+<strong>5. Implicaciones Físicas</strong><br><br>
+
+• Los sistemas de Sturm-Liouville describen:<br>
+  - Problemas de vibración en mecánica clásica<br>
+  - Estados estacionarios en mecánica cuántica<br>
+  - Modos normales en sistemas físicos<br><br>
+
+• La orto,gonalidad de las soluciones permite:<br>
+  - Expansiones en series de funciones propias<br>
+  - Desarrollo de teorías de perturbación<br>
+  - Análisis espectral de operadores<br><br>
+
+<strong>6. Casos Especiales</strong><br><br>
+
+• Cuando \\(w(x)=1\\), recuperamos el problema estándar de autovalores<br>
+• Si \\(P(x)=1\\) y \\(q(x)=0\\), obtenemos el operador Laplaciano<br>
+• La elección de \\(P(x), q(x), w(x)\\) determina las propiedades de ortogonalidad
+<strong>1. La Ecuación de Schrödinger como Problema de Autovalores</strong><br><br>
+
+La ecuación de Schrödinger independiente del tiempo representa un problema de Sturm-Liouville:<br><br>
+
+\\[
+-\\frac{\\hbar^2}{2m}\\frac{d^2}{dx^2}\\phi_E(x) + V(x)\\phi_E(x) = E\\phi_E(x)
+\\]<br><br>
+
+<strong>Componentes clave:</strong><br>
+• \\(E\\): Autovalor de energía (escalar real)<br>
+• \\(\\phi_E(x)\\): Autofunción correspondiente<br>
+• Dominio: \\(x \\in ]-\\infty, \\infty[\\\) (todo el espacio real)<br><br>
+
+<strong>2. Hermiticidad del Operador Hamiltoniano</strong><br><br>
+
+El operador Hamiltoniano:<br><br>
+
+\\[
+\\hat{H} = -\\frac{\\hbar^2}{2m}\\frac{d^2}{dx^2} + V(x)
+\\]<br><br>
+
+es hermítico, como puede verificarse:<br><br>
+
+\\[
+\\left[-\\frac{\\hbar^2}{2m}(-\\hat{k})^2 + V(\\hat{x})\\right]^\\dagger = -\\frac{\\hbar^2}{2m}\\hat{k}^2 + V(\\hat{x})
+\\]<br><br>
+
+<strong>Consecuencias:</strong><br>
+• Los autovalores \\(E\\) son reales<br>
+• Las autofunciones \\(\\phi_E(x)\\) forman una base ortogonal<br>
+• Continuidad: \\(\\phi_E(x)\\) y \\(\\frac{d}{dx}\\phi_E(x)\\) son continuas<br><br>
+
+<strong>3. Caso Discreto: Espectro de Energías Cuantizadas</strong><br><br>
+
+Cuando \\(E\\) toma valores discretos \\(E_n\\):<br><br>
+
+\\[
+\\phi_E(x) \\rightarrow \\phi_n(x) \\quad \\text{con} \\quad n \\in \\mathbb{N}
+\\]<br><br>
+
+<strong>Propiedades de ortonormalidad:</strong><br>
+\\[
+\\braket{\\phi_n|\\phi_m} = \\delta_{nm} \\quad \\text{(ortonormalidad discreta)}
+\\]<br><br>
+
+\\[
+\\sum_n \\ket{\\phi_n}\\bra{\\phi_n} = \\hat{I} \\quad \\text{(relación de completitud)}
+\\]<br><br>
+
+<strong>Expansión de estados arbitrarios:</strong><br>
+Para cualquier estado \\(\\ket{f}\\):<br><br>
+
+\\[
+\\ket{f} = \\sum_n a_n \\ket{\\phi_n} \\quad \\text{con} \\quad a_n = \\braket{\\phi_n|f}
+\\]<br><br>
+
+En representación de posición:<br><br>
+
+\\[
+f(x) = \\sum_n a_n \\phi_n(x) \\quad \\text{y} \\quad a_n = \\int_{-\\infty}^\\infty \\phi_n^*(x)f(x)dx
+\\]<br><br>
+
+<strong>4. Caso Continuo: Espectro de Energías No Acotado</strong><br><br>
+
+Para energías en el continuo:<br><br>
+
+\\[
+\\braket{\\phi_E|\\phi_{E'}} = \\delta(E-E') \\quad \\text{(ortogonalidad continua)}
+\\]<br><br>
+
+\\[
+\\hat{I} = \\int_{-\\infty}^\\infty \\ket{\\phi_E}\\bra{\\phi_E} dE \\quad \\text{(completitud)}
+\\]<br><br>
+
+<strong>Expansión para estados arbitrarios:</strong><br>
+\\[
+\\ket{f} = \\int a_E \\ket{\\phi_E} dE \\quad \\text{con} \\quad a_E = \\braket{\\phi_E|f}
+\\]<br><br>
+
+En representación de posición:<br><br>
+
+\\[
+f(x) = \\int a_E \\phi_E(x) dE \\quad \\text{y} \\quad a_E = \\int_{-\\infty}^\\infty \\phi_E^*(x)f(x)dx
+\\]<br><br>
+
+<strong>5. Interpretación Física y Aplicaciones</strong><br><br>
+
+• <strong>Espectro discreto:</strong> Describe estados ligados (ej: átomo de hidrógeno)<br>
+• <strong>Espectro continuo:</strong> Corresponde a estados de dispersión (ej: partícula libre)<br>
+• <strong>Ortogonalidad:</strong> Permite descomposiciones espectrales de operadores<br>
+• <strong>Completitud:</strong> Fundamenta la expansión de funciones de onda arbitrarias<br><br>
+
+<strong>6. Conexión con la Mecánica Cuántica Moderna</strong><br><br>
+
+Estos resultados muestran cómo:<br>
+1. La estructura de Sturm-Liouville emerge naturalmente en sistemas cuánticos<br>
+2. Las propiedades de hermeticidad garantizan observables físicos reales<br>
+3. Las bases discretas y continuas permiten describir todos los estados posibles<br>
+4. La teoría espectral unifica el tratamiento de sistemas ligados y no ligados
+`
+},
+
                 // ... subtemas
             ]
         }, // ← Coma añadida
         
-        // Capítulo 3: Operadores Hermíticos
+        // Capítulo 3: Postulados de la Mecánica Cuántica
         {
             id: 3,
-            title: "Operadores y Propiedades",
+            title: "Postulados de la Mecánica Cuántica",
             duration: "40 min",
             videoId: "VIDEO_ID_3",
             description: "Profundizamos en el análisis matemático de los operadores hermíticos.",
             subtopics: [
-                // ... subtemas
+            {
+    title: "Postulados Fundamentales de la Mecánica Cuántica",
+    duration: "35 min",
+    description: `<strong>Postulado 1: Descripción del Estado Cuántico</strong><br><br>
+
+El estado de un sistema cuántico en cualquier instante de tiempo \\( t \\) está completamente descrito por un vector de estado \\( \\ket{\\psi(t)} \\) perteneciente a un espacio de Hilbert complejo. Este vector contiene toda la información cinemática accesible sobre la partícula.<br><br>
+
+• Notación: \\( E^o \\) = Estado cuántico<br>
+• Interpretación física: El módulo cuadrado \\( |\\braket{\\phi|\\psi(t)}|^2 \\) representa la probabilidad de que el sistema en el estado \\( \\ket{\\psi(t)} \\) sea encontrado en el estado \\( \\ket{\\phi} \\) al realizar una medición.<br><br>
+
+<strong>Postulado 2: Observables y Operadores Hermíticos</strong><br><br>
+
+Toda cantidad física medible (observable) está asociada a un operador hermítico (autoadjunto) que actúa sobre el espacio de Hilbert:<br><br>
+
+• Ejemplos fundamentales:<br>
+  - Posición: \\( \\hat{x} \\)<br>
+  - Momento: \\( \\hat{p} = -i\\hbar\\nabla \\)<br>
+  - Energía: \\( \\hat{H} \\) (Hamiltoniano)<br><br>
+
+• Propiedad clave: Los operadores hermíticos garantizan:<br>
+  1. Autovalores reales (valores medibles)<br>
+  2. Autovectores ortogonales<br>
+  3. Completitud del conjunto de autovectores<br><br>
+
+<strong>Postulado 3: Evolución Temporal</strong><br><br>
+
+La dinámica del estado cuántico está gobernada por la ecuación de Schrödinger dependiente del tiempo:<br><br>
+
+\\[
+\\hat{H}\\ket{\\psi(t)} = i\\hbar\\frac{d}{dt}\\ket{\\psi(t)}
+\\]<br><br>
+
+Donde el operador Hamiltoniano tiene la forma:<br><br>
+
+\\[
+\\hat{H} = \\frac{\\hat{p}^2}{2m} + V(\\hat{x})
+\\]<br><br>
+
+<strong>Casos especiales:</strong><br>
+• Sistemas conservativos: Cuando \\( \\hat{H} \\) no depende explícitamente del tiempo (<em>Ejemplo clásico</em>: potenciales estáticos)<br>
+• Estados estacionarios: Soluciones de la forma \\( \\ket{\\psi(t)} = e^{-iEt/\\hbar}\\ket{\\phi_E} \\), donde \\( \\hat{H}\\ket{\\phi_E} = E\\ket{\\\phi_E} \\)<br><br>
+
+<strong>Interpretación Física:</strong><br>
+1. El Hamiltoniano genera la evolución temporal del sistema<br>
+2. Para sistemas aislados, la evolución es unitaria (conservación de probabilidad)<br>
+3. La ecuación es análoga cuántica a las ecuaciones de Hamilton en mecánica clásica<br><br>
+
+<strong>Consecuencias Fundamentales:</strong><br>
+• Principio de superposición: Los estados pueden combinarse linealmente<br>
+• Cuantización: Aparece naturalmente de los problemas de autovalores<br>
+• Dualidad onda-partícula: Emerge de la naturaleza del espacio de Hilbert<br>
+• Relación de incertidumbre: Consecuencia de operadores no conmutativos`
+},   
+{
+    title: "Resolución de la Ecuación de Schrödinger y Estados Estacionarios",
+    duration: "45 min",
+    description: `<strong>1. Resolución General de la Ecuación de Schrödinger</strong><br><br>
+
+<strong>Paso 1:</strong> Elección de la base de autovectores del Hamiltoniano<br>
+Se selecciona la base \\(\\{\\ket{u_i}\\}\\) donde cada \\(\\ket{u_i}\\) es autovector de \\(\\hat{H}\\):<br><br>
+
+\\[
+\\hat{H} = \\begin{pmatrix}
+H_{11} & 0 & \\cdots & 0 \\\\
+0 & H_{22} & \\cdots & 0 \\\\
+\\vdots & \\vdots & \\ddots & \\vdots \\\\
+0 & 0 & \\cdots & H_{NN}
+\\end{pmatrix}
+\\]<br><br>
+
+<strong>Paso 2:</strong> Expansión del estado cuántico en esta base<br>
+\\[
+\\ket{\\psi(t)} = \\begin{pmatrix}
+\\psi_1(t) \\\\
+\\vdots \\\\
+\\psi_N(t)
+\\end{pmatrix}
+\\]<br><br>
+
+<strong>Paso 3:</strong> Aplicación de la ecuación de Schrödinger<br>
+\\[
+\\hat{H}\\ket{\\psi(t)} = i\\hbar\\frac{d}{dt}\\ket{\\psi(t)} \\implies
+\\begin{pmatrix}
+H_{11}\\psi_1(t) \\\\
+\\vdots \\\\
+H_{NN}\\psi_N(t)
+\\end{pmatrix} = 
+i\\hbar\\begin{pmatrix}
+\\frac{d}{dt}\\psi_1(t) \\\\
+\\vdots \\\\
+\\frac{d}{dt}\\psi_N(t)
+\\end{pmatrix}
+\\]<br><br>
+
+<strong>Solución:</strong> Para cada componente \\(j = 1,...,N\\):<br>
+\\[
+\\psi_j(t) = \\psi_j(0)e^{-i\\frac{H_{jj}t}{\\hbar}}
+\\]<br><br>
+
+<strong>Forma matricial:</strong><br>
+\\[
+\\ket{\\psi(t)} = e^{-i\\frac{\\hat{H}t}{\\hbar}}\\ket{\\psi(0)}
+\\]<br><br>
+donde \\(e^{-i\\frac{\\hat{H}t}{\\hbar}}\\) es el operador de evolución temporal (unitario).<br><br>
+
+<strong>2. Ecuación de Schrödinger en Representación de Posición</strong><br><br>
+
+Partiendo de:<br>
+\\[
+\\hat{H}\\ket{\\psi(t)} = i\\hbar\\frac{d}{dt}\\ket{\\psi(t)}
+\\]<br><br>
+
+Proyectando sobre \\(\\bra{x}\\):<br>
+\\[
+\\left(-\\frac{\\hbar^2}{2m}\\partial_x^2 + V(x)\\right)\\psi(x,t) = i\\hbar\\partial_t\\psi(x,t)
+\\]<br><br>
+
+<strong>Solución por separación de variables:</strong><br>
+\\[
+\\psi(x,t) = T(t)\\phi(x) \\implies \\psi(x,t) = e^{-i\\frac{Et}{\\hbar}}\\phi_E(x)
+\\]<br><br>
+
+<strong>Ecuación estacionaria resultante:</strong><br>
+\\[
+-\\frac{\\hbar^2}{2m}\\frac{d^2}{dx^2}\\phi_E(x) + V(x)\\phi_E(x) = E\\phi_E(x)
+\\]<br><br>
+
+<strong>3. Estados Estacionarios y Superposición</strong><br><br>
+
+<strong>Estados estacionarios:</strong><br>
+\\[
+\\ket{\\psi_E(t)} = e^{-i\\frac{Et}{\\hbar}}\\ket{\\phi_E}
+\\]<br><br>
+
+<strong>Estados no estacionarios:</strong><br>
+Para \\(E\\) discreto:<br>
+\\[
+\\ket{\\xi(t)} = \\sum_n a_n\\ket{\\psi_n(t)} = e^{-i\\frac{\\hat{H}t}{\\hbar}}\\sum_n a_n\\ket{\\phi_n}
+\\]<br><br>
+donde \\(a_n = \\braket{\\phi_n|\\xi(0)}\\).<br><br>
+
+<strong>4. Densidad de Probabilidad</strong><br><br>
+
+Para estados estacionarios:<br>
+\\[
+\\rho(x,t) = |\\psi(x,t)|^2 = |\\phi_n(x)|^2 = \\rho(x,0)
+\\]<br><br>
+(la densidad de probabilidad no depende del tiempo).<br><br>
+
+<strong>5. Valor Esperado de Operadores</strong><br><br>
+
+El valor esperado de un operador \\(\\hat{A}\\) es:<br>
+\\[
+\\braket{\\hat{A}} = \\frac{\\braket{\\psi|\\hat{A}|\\psi}}{\\braket{\\psi|\\psi}}
+\\]<br><br>
+
+<strong>Interpretaciones Físicas:</strong><br>
+• Los estados estacionarios tienen energías bien definidas y densidades de probabilidad constantes<br>
+• La evolución temporal de estados no estacionarios muestra interferencia cuántica<br>
+• El operador de evolución preserva la norma (unitariedad)<br>
+• La ecuación de Schrödinger garantiza la conservación de la probabilidad`
+},
+ // ... subtemas
             ]
-        }
+        },
+              {
+            id: 4,
+            title: "Problemas unidimensionales",
+            duration: "40 min",
+            videoId: "VIDEO_ID_3",
+            description: "resolvemos problemas unidimensionales con la ecuación de Schrödinger.",
+            subtopics: [
+            {
+    title: "Problemas Unidimensionales ",
+    duration: "60 min",
+    description: `<strong>1. Introducción a los Problemas Unidimensionales</strong><br><br>
+
+La ecuación de Schrödinger independiente del tiempo en una dimensión admite soluciones de la forma:<br><br>
+
+\\[
+\\psi(x,t) = \\phi(x)e^{-iEt/\\hbar}
+\\]<br><br>
+
+donde \\(\\phi(x)\\) satisface la ecuación de valores propios:<br><br>
+
+\\[
+\\left[-\\frac{\\hbar^2}{2m}\\frac{d^2}{dx^2} + V(x)\\right]\\phi(x) = E\\phi(x)
+\\]<br><br>
+
+<strong>2. Clasificación de los Estados Cuánticos</strong><br><br>
+
+<strong>2.1 Espectro Discreto (Estados Ligados)</strong><br><br>
+
+<strong>Condiciones:</strong><br>
+• Potencial con mínimo local (\\(V_{\\text{min}} < V_1\\))<br>
+• Energía en el rango \\(V_{\\text{min}} < E < V_1\\)<br>
+• Función de onda normalizable: \\(\\int_{-\\infty}^{\\infty} |\\phi(x)|^2 dx < \\infty\\)<br><br>
+
+<strong>Teorema 1:</strong> No degeneración en 1D<br>
+\\[
+\\text{En sistemas unidimensionales, los estados ligados son no degenerados}
+\\]<br><br>
+
+<strong>Teorema 2:</strong> Teorema nodal<br>
+\\[
+\\phi_n(x) \\text{ tiene exactamente } n \\text{ nodos (ceros no triviales)}
+\\]<br><br>
+
+<strong>Ejemplo:</strong> Pozo infinito de potencial<br>
+\\[
+\\phi_n(x) = \\sqrt{\\frac{2}{a}}\\sin\\left(\\frac{n\\pi x}{a}\\right), \\quad E_n = \\frac{n^2\\pi^2\\hbar^2}{2ma^2}
+\\]<br><br>
+
+<strong>2.2 Espectro Continuo (Estados No Ligados)</strong><br><br>
+
+<strong>Caso A: \\(V_1 \\leq E \\leq V_2\\)</strong><br>
+• Soluciones físicamente aceptables:<br>
+\\[
+\\phi(x) \\sim \\begin{cases}
+e^{ikx} + Re^{-ikx} & x \\to -\\infty \\\\
+Te^{ikx} & x \\to +\\infty
+\\end{cases}
+\\]<br><br>
+
+<strong>Caso B: \\(E \\geq V_2\\)</strong><br>
+• Soluciones completamente oscilatorias:<br>
+\\[
+\\phi(x) \\sim Ae^{ikx} + Be^{-ikx}
+\\]<br><br>
+
+<strong>Normalización:</strong> Se utiliza normalización en delta de Dirac<br>
+\\[
+\\int_{-\\infty}^{\\infty} \\phi_E^*(x)\\phi_{E'}(x)dx = \\delta(E-E')
+\\]<br><br>
+
+<strong>3. Potenciales Especiales y Soluciones Exactas</strong><br><br>
+
+<strong>3.1 Potencial Delta</strong><br>
+\\[
+V(x) = -\\alpha\\delta(x), \\quad \\alpha > 0
+\\]<br>
+• Estado ligado:<br>
+\\[
+\\phi(x) = \\sqrt{\\kappa}e^{-\\kappa|x|}, \\quad \\kappa = \\frac{m\\alpha}{\\hbar^2}
+\\]<br>
+\\[
+E = -\\frac{m\\alpha^2}{2\\hbar^2}
+\\]<br><br>
+
+<strong>3.2 Oscilador Armónico</strong><br>
+\\[
+V(x) = \\frac{1}{2}m\\omega^2x^2
+\\]<br>
+• Soluciones:<br>
+\\[
+\\phi_n(x) = \\left(\\frac{m\\omega}{\\pi\\hbar}\\right)^{1/4}\\frac{1}{\\sqrt{2^n n!}}H_n\\left(\\sqrt{\\frac{m\\omega}{\\hbar}}x\\right)e^{-m\\omega x^2/2\\hbar}
+\\]<br>
+\\[
+E_n = \\hbar\\omega\\left(n + \\frac{1}{2}\\right)
+\\]<br><br>
+
+`
+},
+{
+    title: "Potenciales Simétricos y Paridad e",
+    duration: "45 min",
+    description: `<strong>1. Introducción a Potenciales Simétricos</strong><br><br>
+
+En sistemas cuánticos unidimensionales, muchos potenciales microscópicos presentan simetría bajo inversión espacial:<br><br>
+
+\\[
+V(-x) = V(x)
+\\]<br><br>
+
+<strong>Consecuencias fundamentales:</strong><br>
+1. El Hamiltoniano conserva esta simetría:<br><br>
+
+\\[
+\\hat{H}(x) = -\\frac{\\hbar^2}{2m}\\frac{d^2}{dx^2} + V(x)
+\\]<br><br>
+
+2. El operador Hamiltoniano conmuta con el operador paridad \\(\\hat{P}\\):<br><br>
+
+\\[
+[\\hat{H}, \\hat{P}] = 0
+\\]<br><br>
+
+<strong>2. Teorema de Paridad en Sistemas Ligados</strong><br><br>
+
+<strong>Teorema 4.1:</strong> Para sistemas unidimensionales ligados:<br>
+• El espectro de energía es <em>no degenerado</em><br>
+• Los eigenestados tienen paridad definida<br><br>
+
+<strong>Tipos de eigenestados:</strong><br>
+• <em>Estados pares:</em> \\(\\psi(x) = \\psi(-x)\\)<br>
+• <em>Estados impares:</em> \\(\\psi(x) = -\\psi(-x)\\)<br><br>
+
+<strong>Ejemplo:</strong> Pozo simétrico infinito<br>
+\\[
+\\phi_n^{\\text{par}}(x) = \\sqrt{\\frac{2}{a}}\\cos\\left(\\frac{n\\pi x}{a}\\right), \\quad n \\ \\text{impar}
+\\]
+\\[
+\\phi_n^{\\text{impar}}(x) = \\sqrt{\\frac{2}{a}}\\sin\\left(\\frac{n\\pi x}{a}\\right), \\quad n \\ \\text{par}
+\\]<br><br>
+
+<strong>3. Sistemas con Espectro Degenerado</strong><br><br>
+
+Para potenciales periódicos o multidimensionales:<br><br>
+
+• Los eigenestados pueden ser degenerados<br>
+• Los estados degenerados <em>no</em> tienen paridad definida<br>
+• Se pueden construir combinaciones lineales con paridad definida:<br><br>
+
+\\[
+\\psi_{\\pm}(x) = \\frac{1}{\\sqrt{2}}[\\psi_n(x) \\pm \\psi_n(-x)]
+\\]<br><br>
+
+<strong>4. Propiedades de Nodos y Paridad</strong><br><br>
+
+<strong>Relación fundamental:</strong><br>
+• Estado fundamental: siempre par (sin nodos)<br>
+• Primer excitado: impar (un nodo en x=0)<br>
+• Segundo excitado: par (dos nodos)<br><br>
+
+<strong>Teorema nodal generalizado:</strong><br>
+\\[
+\\text{Número de nodos} = \\begin{cases}
+n & \\text{para } n=0,2,4,... \\\\
+n+1 & \\text{para } n=1,3,5,...
+\\end{cases}
+\\]<br><br>
+
+<strong>5. Aplicaciones y Ejemplos</strong><br><br>
+
+<strong>5.1 Oscilador armónico cuántico</strong><br>
+\\[
+V(x) = \\frac{1}{2}m\\omega^2x^2
+\\]<br>
+• Todos los estados tienen paridad definida<br>
+\\[
+\\phi_n(-x) = (-1)^n\\phi_n(x)
+\\]<br><br>
+
+<strong>5.2 Pozo doble simétrico</strong><br>
+\\[
+V(x) = \\begin{cases}
+\\infty & |x| > a \\\\
+V_0 & b < |x| \\leq a \\\\
+0 & |x| \\leq b
+\\end{cases}
+\\]<br>
+• Estados apareados con splitting de energía<br><br>
+
+<strong>6. Problemas Resueltos</strong><br><br>
+
+<strong>Problema 1:</strong> Demostrar que el estado fundamental de un potencial simétrico es siempre par<br><br>
+
+<strong>Solución:</strong><br>
+1. Suponer existe estado fundamental impar \\(\\psi_0\\)<br>
+2. Debe tener al menos un nodo (en x=0)<br>
+3. Construir función prueba par \\(|\\psi_0(x)|\\)<br>
+4. Mostrar que tiene menor energía (contradicción)<br><br>
+
+<strong>Problema 2:</strong> Potencial delta doble<br>
+\\[
+V(x) = -\\alpha[\\delta(x-a) + \\delta(x+a)]
+\\]<br>
+• Encontrar ecuaciones para estados ligados<br>
+• Analizar paridad de soluciones<br><br>
+
+<strong>7. Resumen de Propiedades Clave</strong><br><br>
+
+<table style="width:100%">
+  <tr>
+    <th>Propiedad</th>
+    <th>Sistemas Ligados</th>
+    <th>Sistemas Degenerados</th>
+  </tr>
+  <tr>
+    <td>Paridad</td>
+    <td>Definida</td>
+    <td>No definida</td>
+  </tr>
+  <tr>
+    <td>Nodos</td>
+    <td>n o n+1</td>
+    <td>Variable</td>
+  </tr>
+  <tr>
+    <td>Espectro</td>
+    <td>Discreto</td>
+    <td>Continuo/Discreto</td>
+  </tr>
+</table>`
+},
+{
+    title: "Partícula Libre y Escalón de Potencial ",
+    duration: "60 min",
+    description: `<strong>1. Partícula Libre: Estados Continuos (4.3)</strong><br><br>
+
+<strong>1.1 Ecuación Básica y Soluciones</strong><br>
+Para una partícula libre con \\(V(x) = 0\\), la ecuación de Schrödinger independiente del tiempo es:<br><br>
+
+\\[
+-\\frac{\\hbar^2}{2m}\\frac{d^2}{dx^2}\\phi(x) = E\\phi(x) \\implies \\left(\\frac{d^2}{dx^2} + k^2\\right)\\phi(x) = 0
+\\]<br><br>
+donde \\(k^2 = \\frac{2mE}{\\hbar^2}\\) (número de onda).<br><br>
+
+<strong>1.2 Solución General</strong><br>
+La solución más general consiste en ondas planas:<br><br>
+
+\\[
+\\psi_k(x) = A_+ e^{ikx} + A_- e^{-ikx}
+\\]<br><br>
+
+<strong>1.3 Estado Estacionario Completo</strong><br>
+La función de onda dependiente del tiempo:<br><br>
+
+\\[
+\\psi_k(x,t) = A_+ e^{i(kx-\\omega t)} + A_- e^{-i(kx+\\omega t)}
+\\]<br><br>
+con \\(\\omega = \\frac{\\hbar k^2}{2m}\\).<br><br>
+
+<strong>1.4 Interpretación Física</strong><br>
+• Primer término: onda viajando hacia \\(+x\\) (momento \\(+\\hbar k\\))<br>
+• Segundo término: onda viajando hacia \\(-x\\) (momento \\(-\\hbar k\\))<br><br>
+
+<strong>1.5 Problemas con la Interpretación</strong><br>
+• Densidad de probabilidad constante: \\(|\\psi_{\\pm}(x,t)|^2 = |A_{\\pm}|^2\\)<br>
+• No normalizable: \\(\\int_{-\\infty}^{\\infty} |\\psi|^2 dx = \\infty\\)<br>
+• Consecuencia del principio de incertidumbre: \\(\\Delta p = 0 \\implies \\Delta x \\to \\infty\\)<br><br>
+
+<strong>1.6 Solución Correcta: Paquetes de Onda</strong><br>
+La solución físicamente realista es un paquete de ondas:<br><br>
+
+\\[
+\\psi(x,t) = \\frac{1}{2\\pi}\\int_{-\\infty}^{\\infty} \\phi(k)e^{i(kx-\\omega t)} dk
+\\]<br><br>
+con transformada de Fourier:<br><br>
+
+\\[
+\\phi(k) = \\frac{1}{2\\pi}\\int_{-\\infty}^{\\infty} \\psi(x,0)e^{-ikx} dx
+\\]<br><br>
+
+<strong>2. Escalón de Potencial</strong><br><br>
+
+<strong>2.1 Definición del Problema</strong><br>
+Potencial escalón:<br><br>
+
+\\[
+V(x) = \\begin{cases} 
+0 & x < 0 \\\\
+V_0 & x \\geq 0
+\\end{cases}
+\\]<br><br>
+
+<strong>2.2 Caso \\(E > V_0\\)</strong><br><br>
+
+<strong>Ecuaciones de Schrödinger:</strong><br>
+\\[
+\\frac{d^2\\psi_1}{dx^2} + k_1^2\\psi_1 = 0, \\quad x < 0 \\quad (k_1^2 = \\frac{2mE}{\\hbar^2})
+\\]
+\\[
+\\frac{d^2\\psi_2}{dx^2} + k_2^2\\psi_2 = 0, \\quad x \\geq 0 \\quad (k_2^2 = \\frac{2m(E-V_0)}{\\hbar^2})
+\\]<br><br>
+
+<strong>Soluciones Generales:</strong><br>
+\\[
+\\psi_1(x) = Ae^{ik_1x} + Be^{-ik_1x}
+\\]
+\\[
+\\psi_2(x) = Ce^{ik_2x}
+\\]<br><br>
+
+<strong>Condiciones de Continuidad:</strong><br>
+1. \\(\\psi_1(0) = \\psi_2(0)\\) \\(\\implies A + B = C\\)<br>
+2. \\(\\psi_1'(0) = \\psi_2'(0)\\) \\(\\implies ik_1(A - B) = ik_2C\\)<br><br>
+
+<strong>Coeficientes:</strong><br>
+\\[
+B = \\frac{k_1 - k_2}{k_1 + k_2}A, \\quad C = \\frac{2k_1}{k_1 + k_2}A
+\\]<br><br>
+
+<strong>2.3 Coeficientes de Reflexión y Transmisión</strong><br><br>
+
+<strong>Densidades de Corriente:</strong><br>
+\\[
+J_{inc} = \\frac{\\hbar k_1}{m}|A|^2, \\quad J_{ref} = -\\frac{\\hbar k_1}{m}|B|^2, \\quad J_{trans} = \\frac{\\hbar k_2}{m}|C|^2
+\\]<br><br>
+
+<strong>Coeficientes:</strong><br>
+\\[
+R = \\left|\\frac{B}{A}\\right|^2 = \\left(\\frac{k_1 - k_2}{k_1 + k_2}\\right)^2
+\\]
+\\[
+T = \\frac{k_2}{k_1}\\left|\\frac{C}{A}\\right|^2 = \\frac{4k_1k_2}{(k_1 + k_2)^2}
+\\]<br><br>
+
+<strong>2.4 Caso \\(E < V_0\\)</strong><br><br>
+
+<strong>Ecuaciones Modificadas:</strong><br>
+Para \\(x \\geq 0\\):<br><br>
+
+\\[
+\\frac{d^2\\psi_2}{dx^2} - \\kappa^2\\psi_2 = 0, \\quad \\kappa^2 = \\frac{2m(V_0 - E)}{\\hbar^2}
+\\]<br><br>
+
+<strong>Solución:</strong><br>
+\\[
+\\psi_2(x) = Ce^{-\\kappa x} \\quad (\\text{solución físicamente aceptable})
+\\]<br><br>
+
+<strong>Coeficientes:</strong><br>
+\\[
+B = \\frac{k_1 - i\\kappa}{k_1 + i\\kappa}A, \\quad C = \\frac{2k_1}{k_1 + i\\kappa}A
+\\]<br><br>
+
+<strong>Coeficiente de Reflexión:</strong><br>
+\\[
+R = \\left|\\frac{B}{A}\\right|^2 = 1
+\\]<br><br>
+
+<strong>Efecto Túnel:</strong><br>
+Aunque \\(R = 1\\), existe probabilidad no nula de encontrar la partícula en \\(x > 0\\):<br><br>
+
+\\[
+|\\psi_2(x)|^2 = |C|^2 e^{-2\\kappa x}
+\\]<br><br>
+
+<strong>3. Resumen de Resultados Clave</strong><br><br>
+
+<table style="width:100%">
+  <tr>
+    <th>Caso</th>
+    <th>Coeficiente de Reflexión (R)</th>
+    <th>Coeficiente de Transmisión (T)</th>
+    <th>Comportamiento</th>
+  </tr>
+  <tr>
+    <td>\\(E > V_0\\)</td>
+    <td>\\(\\left(\\frac{k_1-k_2}{k_1+k_2}\\right)^2\\)</td>
+    <td>\\(\\frac{4k_1k_2}{(k_1+k_2)^2}\\)</td>
+    <td>Reflexión parcial</td>
+  </tr>
+  <tr>
+    <td>\\(E < V_0\\)</td>
+    <td>1</td>
+    <td>0 (clásico)<br>Efecto túnel (cuántico)</td>
+    <td>Reflexión total con penetración</td>
+  </tr>
+</table>
+
+<strong> El curso ha finalizado:) </strong><br><br>
+`
+},
+
+            ]
+              },
     ]
 };
 
