@@ -5,7 +5,7 @@ const courses = [
         title: "Mecánica Cuántica 1 - Fundamentos",
         description: "Introducción a los principios básicos de la mecánica cuántica, incluyendo postulados y representaciones.",
         image: "https://images.unsplash.com/photo-1453733190371-0a9bedd82893?q=80&w=2874&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
-        topics: ["Postulados de la mecánica cuántica", "Representaciones y bases", "Operadores hermíticos", "Teorema espectral"],
+        topics: ["Herramientas Matemáticas de QM","Postulados de la mecánica cuántica","Problemas unidimensionales"],
         level: "Intermedio",
         duration: "8 semanas",
         professor: "Dr. Zettili"
