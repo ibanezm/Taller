@@ -7,7 +7,7 @@ const courseData = {
             id: 1,
             title: "Herramientas Matemáticas de la Mecánica Cuántica",
             duration: "30 min",
-            videoId: "VIDEO_ID_1",
+            videoId: "A1OegIvuTXM",
             description: "Introducción a la matemática necesaria para entender la mecánica cuántica...",
             subtopics: [
                 {
@@ -829,7 +829,7 @@ Estos resultados muestran cómo:<br>
             id: 3,
             title: "Postulados de la Mecánica Cuántica",
             duration: "40 min",
-            videoId: "VIDEO_ID_3",
+            videoId: "72SQ6vHpjo8",
             description: "Profundizamos en el análisis matemático de los operadores hermíticos.",
             subtopics: [
             {
